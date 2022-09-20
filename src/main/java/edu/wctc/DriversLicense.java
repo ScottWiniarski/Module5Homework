@@ -1,11 +1,11 @@
 package edu.wctc;
 
 public class DriversLicense {
-    private	String	SSSS ; //(or soundexCode)
-    private	int	FFF; //(or firstNameMiddleInitial)
-    private	int	YY; // Or birthYear
-    private	int	DDD; //(or birthMonthDayGender)
-    private	int	NN; // (or overflow)
+    private String SSSS; //(or soundexCode)
+    private int FFF; //(or firstNameMiddleInitial)
+    private int YY; // Or birthYear
+    private int DDD; //(or birthMonthDayGender)
+    private int NN; // (or overflow)
 
     public DriversLicense(String SSSS, int FFF, int YY, int DDD, int NN) {
         this.SSSS = SSSS;

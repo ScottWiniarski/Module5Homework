@@ -49,7 +49,6 @@ public class Main {
 
             int DDD = birthgen.encodeMonthDayGender(birthyear, bmonth, bday, gCode);
 
-
             // have to pass in NN, but the overflow is dependent on the formatters not the actual main.
             DriversLicense driversLicense = new DriversLicense(newSS, firstNameVal, YY, DDD, 0);
 

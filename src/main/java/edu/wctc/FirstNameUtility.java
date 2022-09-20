@@ -11,10 +11,10 @@ public class FirstNameUtility {
     If a person has no middle initial, return only the first name or first initial code.
      */
     private Map<String, Integer> firstNameCodeMap;
-    private	Map<String, Integer> firstInitialCodeMap;
+    private Map<String, Integer> firstInitialCodeMap;
     private Map<String, Integer> middleInitialCodeMap;
 
-    public FirstNameUtility(){
+    public FirstNameUtility() {
         firstNameCodeMap = new HashMap<>();
         firstInitialCodeMap = new HashMap<>();
         middleInitialCodeMap = new HashMap<>();
@@ -135,39 +135,30 @@ public class FirstNameUtility {
         char firstIn;
         String fInitial;
 
-
-
-        if(firstName.isBlank()){
+        if (firstName.isBlank()) {
             throw new MissingNameException("First Name");
         }
-        if(middleInitial.isBlank()){
+        if (middleInitial.isBlank()) {
             firstName = firstName.toUpperCase();
             firstIn = firstName.charAt(0);
             fInitial = Character.toString(firstIn);
-        }
-        else {
+        } else {
             firstName = firstName.toUpperCase();
-            middleInitial = middleInitial.toUpperCase().substring(0,1);
+            middleInitial = middleInitial.toUpperCase().substring(0, 1);
             firstIn = firstName.charAt(0);
             fInitial = Character.toString(firstIn);
         }
 
-
-        if(firstNameCodeMap.containsKey(firstName) && middleInitialCodeMap.containsKey(middleInitial)){
+        if (firstNameCodeMap.containsKey(firstName) && middleInitialCodeMap.containsKey(middleInitial)) {
             sum = firstNameCodeMap.get(firstName) + middleInitialCodeMap.get(middleInitial);
-        }
-        else if(!firstNameCodeMap.containsKey(firstName) && middleInitialCodeMap.containsKey(middleInitial)){
+        } else if (!firstNameCodeMap.containsKey(firstName) && middleInitialCodeMap.containsKey(middleInitial)) {
 
             sum = firstInitialCodeMap.get(fInitial) + middleInitialCodeMap.get(middleInitial);
-        }
-        else if(firstNameCodeMap.containsKey(firstName) && !middleInitialCodeMap.containsKey(middleInitial))
-        {
+        } else if (firstNameCodeMap.containsKey(firstName) && !middleInitialCodeMap.containsKey(middleInitial)) {
             sum = firstNameCodeMap.get(firstName);
-        }
-        else if(firstInitialCodeMap.containsKey(fInitial) && !middleInitialCodeMap.containsKey(middleInitial)){
+        } else if (firstInitialCodeMap.containsKey(fInitial) && !middleInitialCodeMap.containsKey(middleInitial)) {
             sum = firstInitialCodeMap.get(fInitial);
         }
-
 
         return sum;
     }
