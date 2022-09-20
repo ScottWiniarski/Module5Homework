@@ -9,7 +9,7 @@ public class WisonsinFormatter implements DriversLicenseFormatter {
     @Override
     public String formatLicenseNumber(DriversLicense driversLicense) {
 
-        String[] year2 = new String[3];
+        //String[] year2 = new String[3];
 
         String SS = driversLicense.getSSSS();
 

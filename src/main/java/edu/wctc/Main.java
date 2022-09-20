@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws UnknownGenderCodeException, MissingNameException, InvalidBirthdayException {
+    public static void main(String[] args) {
         MonthDayGenderUtility birthgen = new MonthDayGenderUtility();
         LastNameUtility lNameU = new LastNameUtility();
         FirstNameUtility firstName = new FirstNameUtility();
@@ -12,19 +12,19 @@ public class Main {
         Scanner kb = new Scanner(System.in);
 
         System.out.println("What is your first name? ");
-        String fName = kb.nextLine().toUpperCase();
+        String fName = kb.nextLine();//.toUpperCase();
         //String fName = fame.substring(0, 1).toUpperCase() + fame.substring(1);
-        System.out.println(fName);
+        //System.out.println(fName);
 
         System.out.println("What is your middle initial, if you have one? ");
-        char initial = kb.nextLine().charAt(0);
-        String middleInitial = Character.toString(initial).toUpperCase();
-        System.out.println(middleInitial);
+        String middleInitial = kb.nextLine();
+        //String middleInitial = initial.toUpperCase().substring(0,1);
+        //System.out.println(middleInitial);
 
         System.out.println("What is your last name? ");
-        String lame = kb.nextLine();
-        String lName = lame.substring(0, 1).toUpperCase() + lame.substring(1);
-        System.out.println(lName);
+        String lName = kb.nextLine();
+        //String lName = lame.substring(0, 1).toUpperCase() + lame.substring(1);
+        //System.out.println(lName);
 
         System.out.println("What year were you born?");
         int birthyear = kb.nextInt();
@@ -37,7 +37,8 @@ public class Main {
 
 
         try {
-
+            //String lName = lame.substring(0, 1).toUpperCase() + lame.substring(1);
+            //String middleInitial = initial.toUpperCase().substring(0,1);
 
             String newSS = lNameU.encodeLastName(lName);
             int firstNameVal = firstName.EncodeFirstName(fName, middleInitial);
@@ -58,12 +59,8 @@ public class Main {
             FloridaFormatter FloFor = new FloridaFormatter();
             System.out.println("Florida: " + FloFor.formatLicenseNumber(driversLicense));
 
-        } catch (InvalidBirthdayException e) {
+        } catch (InvalidBirthdayException | MissingNameException | UnknownGenderCodeException e) {
             System.out.println(e);
-        } catch (MissingNameException n) {
-            System.out.println(n + "Name is invalid");
-        } catch (UnknownGenderCodeException u) {
-            System.out.println("That gender code is invalid" + u);
         }
 
     }

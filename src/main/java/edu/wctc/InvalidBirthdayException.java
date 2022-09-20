@@ -3,7 +3,8 @@ package edu.wctc;
 public class InvalidBirthdayException extends Exception {
 
     public InvalidBirthdayException(int year, int month, int day) {
-        super("That birthdate is invalid.");
+        //super("This date is invalid: " + month + "/" + day + "/" + year);
+        super(String.format("This date is invalid: %s/%s/%s", month, day ,year));
 
         /*if (year > 9999 || year < 1000){
             System.out.println("The year is invalid");

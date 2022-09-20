@@ -132,16 +132,28 @@ public class FirstNameUtility {
 
     public int EncodeFirstName(String firstName, String middleInitial) throws MissingNameException {
         int sum = 0;
-        //char firstIn;
-        //String fInitial;
+        char firstIn;
+        String fInitial;
 
-        char firstIn = firstName.charAt(0);
-        String fInitial = Character.toString(firstIn);
+
 
         if(firstName.isBlank()){
-            throw new MissingNameException(firstName);
+            throw new MissingNameException("First Name");
         }
-        else if(firstNameCodeMap.containsKey(firstName) && middleInitialCodeMap.containsKey(middleInitial)){
+        if(middleInitial.isBlank()){
+            firstName = firstName.toUpperCase();
+            firstIn = firstName.charAt(0);
+            fInitial = Character.toString(firstIn);
+        }
+        else {
+            firstName = firstName.toUpperCase();
+            middleInitial = middleInitial.toUpperCase().substring(0,1);
+            firstIn = firstName.charAt(0);
+            fInitial = Character.toString(firstIn);
+        }
+
+
+        if(firstNameCodeMap.containsKey(firstName) && middleInitialCodeMap.containsKey(middleInitial)){
             sum = firstNameCodeMap.get(firstName) + middleInitialCodeMap.get(middleInitial);
         }
         else if(!firstNameCodeMap.containsKey(firstName) && middleInitialCodeMap.containsKey(middleInitial)){
